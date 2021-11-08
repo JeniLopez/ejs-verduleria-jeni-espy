@@ -14,38 +14,41 @@
         />
 
         <!-- CSS Style -->
-        <link rel="stylesheet" href="/css/style.css" />
+        <link rel="stylesheet" href="../css/style.css" />
     </head>
+    
     <body>
         <div class="container">
-            <% for (x in <%=productos%>){%>
-            <div class="row">
-                <div class="col-4">
-                    <div class="card" style="width: 18rem">
-                        <%if (x.stock == true){%>
-                        <img
-                            src="/public/img/papas.jpg"
-                            class="card-img-top"
-                            alt="..."
-                        />
-                        <%}%> <%else {%>
-                        <img
-                            src="/public/img/papas.jpg"
-                            class="card-img-top byn"
-                            alt="..."
-                        />
-                        <%}%
-                        <div class="card-body">
-                            <h5 class="card-title"><%=x.nombre%></h5>
-                            <p class="card-text">
-                                Some quick example text to build on the card
-                                title and make up the bulk of the card's
-                                content.
-                            </p>
+            
+                <div class="row">
+                    <% productos.forEach (function(x){ %>
+                    <div class="col-4">
+                        <div class="card" style="width: 18rem">
+                            <% if (x.stock == "false") { %>
+                                <img
+                                src=<%=x.ruta%>
+                                class="gris"
+                                alt="..."
+                            />
+                              <% } %><!-- cierre if b&n -->
+                            <% if (x.stock =="true") { %>
+                                <img
+                                src=<%=x.ruta%>
+                                class="card-img-top"
+                                alt="..."
+                            />
+                              <% } %><!-- cierre if -->
+                            <div class="card-body">
+                                <h5 class="card-title"><%=x.nombre%></h5>
+                                <p class="card-text">
+                                    Valor: <%=x.precio%>
+                                </br> Tipo: <%=x.tipo%>
+                                    
+                                </p>
+                            </div>
                         </div>
+                        <% }); %><!-- cierre for -->
                     </div>
-                </div>
-                <%}%>
             </div>
         </div>
 
