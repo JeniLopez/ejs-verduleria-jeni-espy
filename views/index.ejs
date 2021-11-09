@@ -19,38 +19,37 @@
     
     <body>
         <div class="container">
-            
-                <div class="row">
-                    <% productos.forEach (function(x){ %>
+            <div class="row">
+                <% for(let x = 0; x < largo; x++){ %>
                     <div class="col-4">
                         <div class="card" style="width: 18rem">
-                            <% if (x.stock == "false") { %>
+                            <% if (productos[x].stock == "false") { %>
                                 <img
-                                src=<%=x.ruta%>
+                                src=<%=productos[x].ruta%>
                                 class="gris"
                                 alt="..."
                             />
-                              <% } %><!-- cierre if b&n -->
-                            <% if (x.stock =="true") { %>
+                            <% } %><!-- cierre if b&n -->
+                            <% if (productos[x].stock =="true") { %>
                                 <img
-                                src=<%=x.ruta%>
+                                src=<%=productos[x].ruta%>
                                 class="card-img-top"
                                 alt="..."
                             />
                               <% } %><!-- cierre if -->
                             <div class="card-body">
-                                <h5 class="card-title"><%=x.nombre%></h5>
+                                <h5 class="card-title"><%=productos[x].nombre%></h5>
                                 <p class="card-text">
-                                    Valor: <%=x.precio%>
-                                </br> Tipo: <%=x.tipo%>
+                                    Valor: <%=productos[x].precio%>
+                                </br> Tipo: <%=productos[x].tipo%>
                                     
                                 </p>
                             </div>
                         </div>
-                        <% }); %><!-- cierre for -->
                     </div>
+                <% } %><!-- cierre for -->
             </div>
-        </div>
+    </div>
 
         <!-- JS bootstrap + bundle-->
         <script

@@ -20,12 +20,16 @@ let productos = [
     { nombre: "sandia", tipo: "fruta", precio: "$100", stock: "true", ruta: "/img/sandia.jpg" },
     { nombre: "manzana", tipo: "fruta", precio: "$85", stock: "true", ruta: "/img/manzana.jpg" },
     { nombre: "pera", tipo: "fruta", precio: "$40", stock: "false" , ruta: "/img/pera.jpg"},
-    { nombre: "palta", tipo: "verdura", precio: "$77", stock: "true" , ruta: "/img/palta.jpg"},
+    { nombre: "palta", tipo: "verdura", precio: "$77", stock: "true" , ruta: "/img/palta.jpg"}
 ];
 
+let p =  [1,2,3,4,5];
+
+let largo = productos.length;
+
 app.get("/verduleria", (req, res) => {
-res.render("index", { productos: productos });
-   // res.render("index", productos);
+    res.render("index", { productos: productos, largo: largo });
+    //res.render("pruebas", { p : p});
 });
 
 app.listen(port, () => {
